@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<short-name>cctg</short-name>
+	<uri>custom-cinema-tags</uri>
+	<tag>
+		<name>InitSeatParamTag</name>
+		<tag-class>by.bsuir.lab3.web.tags.InitSeatTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>row</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>column</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>filmSession</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>isStateRequired</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>DisplayGenresBlock</name>
+		<tag-class>by.bsuir.lab3.web.tags.DisplayGenresBlockTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+</taglib>

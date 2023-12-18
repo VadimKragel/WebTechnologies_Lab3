@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+	<bean name="crud_film"
+		class="by.bsuir.lab3.web.action.impl.CrudFilmAction">
+		<property name="filmService" ref="filmService" />
+		<property name="genreService" ref="genreService" />
+	</bean>
+	<bean name="crud_genre"
+		class="by.bsuir.lab3.web.action.impl.CrudGenreAction">
+		<property name="genreService" ref="genreService" />
+	</bean>
+	<bean name="crud_role"
+		class="by.bsuir.lab3.web.action.impl.CrudRoleAction">
+		<property name="roleService" ref="roleService" />
+	</bean>
+	<bean name="crud_user"
+		class="by.bsuir.lab3.web.action.impl.CrudUserAction">
+		<property name="roleService" ref="roleService" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="view_film_list"
+		class="by.bsuir.lab3.web.action.impl.FilmListViewAction">
+		<property name="filmService" ref="filmService" />
+	</bean>
+	<bean name="view_film_page"
+		class="by.bsuir.lab3.web.action.impl.FilmViewAction">
+		<property name="filmService" ref="filmService" />
+		<property name="filmSessionService" ref="filmSessionService" />
+	</bean>
+
+</beans>

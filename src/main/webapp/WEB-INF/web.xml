@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Cinema</display-name>
+	
+	<servlet>
+		<servlet-name>MainServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				by.bsuir.lab3.springConfig.SpringMainConfig
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>NewUserControllerServlet</servlet-name>
+		<servlet-class>by.bsuir.lab3.web.controllers.NewUserController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>OldControllerServlet</servlet-name>
+		<servlet-class>by.bsuir.lab3.web.controllers.OldController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MainServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewUserControllerServlet</servlet-name>
+		<url-pattern>/newapp</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OldControllerServlet</servlet-name>
+		<url-pattern>/oldapp</url-pattern>
+	</servlet-mapping>
+
+  <!-- Configure ContextLoaderListener to use AnnotationConfigWebApplicationContext
+       instead of the default XmlWebApplicationContext -->
+  <context-param>
+      <param-name>contextClass</param-name>
+      <param-value>
+          org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+      </param-value>
+  </context-param>
+
+  <!-- Configuration locations must consist of one or more comma- or space-delimited
+       fully-qualified @Configuration classes. Fully-qualified packages may also be
+       specified for component-scanning -->
+  <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+		  by.bsuir.lab3.springConfig.SpringMainConfig
+	  </param-value>
+  </context-param>
+
+
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>by.bsuir.lab3.web.filters.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<!-- <filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+		<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

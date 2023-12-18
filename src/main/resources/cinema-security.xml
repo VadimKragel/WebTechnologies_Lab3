@@ -1,0 +1,36 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http use-expressions="true">
+		<intercept-url pattern="/newapp/user/chooseSeat/**"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" />
+		<intercept-url pattern="/newapp/admin/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<form-login login-processing-url="/j_spring_security_check"
+			login-page="/newapp/user/login" default-target-url="/newapp/user/"
+			username-parameter="username" password-parameter="password"
+			authentication-failure-url="/newapp/user/error?error=true" />
+		<csrf disabled="true" />
+		<logout logout-url="/j_spring_security_logout"
+			logout-success-url="/newapp/user/" />
+		<anonymous username="guest" granted-authority="ROLE_GUEST" />
+	</http>
+
+	<b:bean name="userDetailsService"
+		class="by.bsuir.lab3.service.impl.CustomUserDetailsServiceImpl">
+		<b:property name="userDao">
+			<b:bean class="by.bsuir.lab3.dao.impl.UserDaoHibernateImpl"></b:bean>
+		</b:property>
+	</b:bean>
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsService">
+		</authentication-provider>
+	</authentication-manager>
+
+</b:beans>

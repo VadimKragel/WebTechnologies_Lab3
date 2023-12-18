@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean name="filmDao"
+		class="by.bsuir.lab3.dao.impl.FilmDaoHibernateImpl" />
+	<bean name="filmSessionDao"
+		class="by.bsuir.lab3.dao.impl.FilmSessionDaoHibernateImpl" />
+	<bean name="genreDao"
+		class="by.bsuir.lab3.dao.impl.GenreDaoHibernateImpl" />
+	<bean name="roleDao"
+		class="by.bsuir.lab3.dao.impl.RoleDaoHibernateImpl" />
+	<bean name="seatDao"
+		class="by.bsuir.lab3.dao.impl.SeatDaoHibernateImpl" />
+	<bean name="ticketDao"
+		class="by.bsuir.lab3.dao.impl.TicketDaoHibernateImpl" />
+	<bean name="ticketsOrderDao"
+		class="by.bsuir.lab3.dao.impl.TicketsOrderDaoHibernateImpl" />
+	<bean name="userDao"
+		class="by.bsuir.lab3.dao.impl.UserDaoHibernateImpl" />
+
+</beans>

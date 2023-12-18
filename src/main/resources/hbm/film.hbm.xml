@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="by.bsuir.lab3.entity.Film" table="films">
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="filmName" type="java.lang.String">
+			<column name="filmName" />
+		</property>
+		<property name="genres" type="java.lang.String">
+			<column name="genres" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+	</class>
+
+</hibernate-mapping>
